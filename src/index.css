@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Audi Type';
+  src:
+    url('/fonts/audi-light.woff2') format('woff2'),
+    url('/fonts/audi-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Audi Type';
+  src:
+    url('/fonts/audi-regular.woff2') format('woff2'),
+    url('/fonts/audi-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Audi Type';
+  src:
+    url('/fonts/audi-bold.woff2') format('woff2'),
+    url('/fonts/audi-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Audi Type';
+  src:
+    url('/fonts/audi-bold.woff2') format('woff2'),
+    url('/fonts/audi-bold.woff') format('woff');
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --header-h: 96px;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ink ring-offset-2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-normal tracking-tight;
+  }
+}
+
+@layer components {
+
+  
+  .shell {
+    @apply mx-auto w-full max-w-shell;
+    padding-left: clamp(1rem, 4vw, 4rem);
+    padding-right: clamp(1rem, 4vw, 4rem);
+  }
+
+  
+  .shell-header {
+    @apply shell;
+  }
+
+  
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-medium transition-colors duration-300 ease-audi;
+  }
+
+  .btn-solid {
+    @apply btn bg-ink text-paper hover:bg-steel-800;
+  }
+
+  .btn-outline {
+    @apply btn border border-ink bg-transparent text-ink hover:bg-ink hover:text-paper;
+  }
+
+  .btn-light {
+    @apply btn bg-paper text-ink hover:bg-steel-100;
+  }
+
+  
+  .field-label {
+    @apply mb-2 block text-left text-[12.96px] text-[#666];
+  }
+
+  .field-input {
+    @apply w-full border-0 border-b-2 border-b-[#ccc] bg-[#eaeaea] p-[15px] text-[14.4px] transition-colors duration-200 placeholder:text-steel-400 focus:border-b-ink focus:outline-none;
+  }
+
+  
+  .field-input-outlined {
+    @apply w-full max-w-[500px] rounded-[4px] border border-[#ccc] bg-paper p-[10px] text-[14.4px] transition-colors duration-200 placeholder:text-steel-400 focus:border-ink focus:outline-none;
+  }
+
+  .field-error {
+    @apply mt-1.5 block text-[12px] text-accent;
+  }
+
+  
+  .btn-form-submit {
+    @apply mt-5 w-[200px] border-0 bg-ink py-5 text-center text-[17.28px] text-paper transition-opacity duration-300 disabled:cursor-not-allowed disabled:opacity-10;
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center gap-2 text-sm font-medium after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-audi hover:after:scale-x-100;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    @apply sr-only;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

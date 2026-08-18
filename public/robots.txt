@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://audi-az.vercel.app/sitemap.xml
